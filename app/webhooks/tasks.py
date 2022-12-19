@@ -42,6 +42,7 @@ class TaskSchema(Schema):
     location = fields.String(required=True)
     link = fields.String(required=True)
     description = fields.String()
+    archive = fields.Boolean()
 
     class Meta:
         unknown = EXCLUDE
@@ -150,6 +151,9 @@ class CreateTasks(MethodResource, Resource):
         logger.info(f"Tasks: Added {len(tasks_to_add)} new tasks.")
         logger.info(f"Tasks: Added task IDs: {task_ids}")
         return task_ids
+
+    def __add_tasks_correct(self, tasks_to_add, task_to_send):
+        pass
 
     def __archive_tasks(self, archive_records):
         task_ids = [task.id for task in archive_records]
