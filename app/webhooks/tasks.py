@@ -152,9 +152,6 @@ class CreateTasks(MethodResource, Resource):
         logger.info(f"Tasks: Added task IDs: {task_ids}")
         return task_ids
 
-    def __add_tasks_correct(self, tasks_to_add, task_to_send):
-        pass
-
     def __archive_tasks(self, archive_records):
         task_ids = [task.id for task in archive_records]
         for task in archive_records:

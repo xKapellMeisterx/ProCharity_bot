@@ -1,5 +1,4 @@
 from core.repositories.task_repository import TaskRepository
-from app.database import db_session
 
 
 class TaskService:
