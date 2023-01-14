@@ -52,7 +52,7 @@ class CreateTasks(MethodResource, Resource):
 
         def initialization_tasks(task_id_json):
             for id_task in task_id_json:
-                task = task_repository.checking_object(id_task)
+                task = task_repository.get_or_none(id_task)
                 if task:
                     task_update.append(task)
                 else:

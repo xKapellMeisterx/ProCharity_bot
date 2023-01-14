@@ -19,11 +19,7 @@ class TaskRepository(AbstractRepository):
             raise LookupError(f'Task ID={task_id} not found')
         return task
 
-    def checking_object(self, task_id: int) -> Task:
-        task = self.get_or_none(task_id)
-        return task
-
-    def get_active_tasks(self):
+    def get_active_tasks(self) -> Task:
         tasks = self.session.query(Task).filter_by(archive=False).all()
         return tasks
 
